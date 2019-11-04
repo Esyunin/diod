@@ -4,13 +4,13 @@ from matplotlib.ticker import FuncFormatter
 fig = plt.figure() 
 ax = fig.add_subplot(111) 
 
-x=np.array([0,0.2,0.26,0.3,0.34,0.36,0.38,0.4,0.44]) 
-y=np.array([0,1,8,14,28,38,54,74,100]) 
+# x=np.array([0,0.2,0.26,0.3,0.34,0.36,0.38,0.4,0.44]) 
+# y=np.array([0,1,8,14,28,38,54,74,100]) 
 # plt.errorbar(x, y, xerr=0.5, yerr=0.01, c='blue', lw=0.5, mfc='white', ms=3) 
 
 
-# x=np.array([0,-2,-10,-20,-30,-40,-50,-60,-70,-80,-90,-100]) 
-# y=np.array([0,-20,-22,-22,-24,-24,-25,-26,-26,-27,-28,-28]) 
+x=np.array([0,2,6,10,20,30,40,42]) 
+y=np.array([503.7, 1241, 1274, 1282, 1296, 1296, 1307, 1307]) 
 # plt.errorbar(x, y, xerr=0.5, yerr=0.01, c='black', lw=0.5, mfc='white', ms=3) 
 
 
@@ -20,12 +20,12 @@ y=np.array([0,1,8,14,28,38,54,74,100])
 
 # plt.legend(('$\phi_з=40В$','$\phi_з=45В$','$\phi_з=50В$'),loc=(0.1,0.4))
 
-ax.plot(x,y,'ko', color = "crimson", markersize=4) 
-plt.title('Прямой ход ВАХ')
-plt.ylabel('$J$,мА') 
+ax.plot(x,y,'ko', color = "brown", markersize=4) 
+plt.title('ВФХ')
+plt.ylabel('$Fрез$,кГц') 
 plt.xlabel('$U$,В') 
 plt.grid () 
-plt.xlim([0,1]) 
-plt.ylim([0,102]) 
-plt.savefig('11.png',dpi=300)
+plt.xlim([-1,45]) 
+plt.ylim([500,1350]) 
+plt.savefig('2.png',dpi=300)
 plt.show()

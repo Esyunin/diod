@@ -4,8 +4,8 @@ from matplotlib.ticker import FuncFormatter
 fig = plt.figure() 
 ax = fig.add_subplot(111) 
 
-x=np.array([0,0.2,0.26,0.3,0.34,0.36,0.38,0.4,0.44]) 
-y=np.array([0,1,8,14,28,38,54,74,100]) 
+x=np.array([0,0.1,0.2,0.3,0.36,0.38,0.4,0.42]) 
+y=np.array([0,0,4,20,38,64,76,100]) 
 # plt.errorbar(x, y, xerr=0.5, yerr=0.01, c='blue', lw=0.5, mfc='white', ms=3) 
 
 
@@ -21,11 +21,11 @@ y=np.array([0,1,8,14,28,38,54,74,100])
 # plt.legend(('$\phi_з=40В$','$\phi_з=45В$','$\phi_з=50В$'),loc=(0.1,0.4))
 
 ax.plot(x,y,'ko', color = "crimson", markersize=4) 
-plt.title('Прямой ход ВАХ')
+plt.title('Прямой ход ВАХ (нагретый диод)')
 plt.ylabel('$J$,мА') 
 plt.xlabel('$U$,В') 
 plt.grid () 
 plt.xlim([0,1]) 
 plt.ylim([0,102]) 
-plt.savefig('11.png',dpi=300)
+plt.savefig('31.png',dpi=300)
 plt.show()
