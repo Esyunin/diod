@@ -1,0 +1,62 @@
+\documentclass[border=2pt,12pt]{standalone}
+\usepackage{pgfplotstable}
+\pgfplotsset{compat=1.15}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{colortbl}
+\usepackage[russian,english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{amssymb,
+	amsfonts,
+	amsmath,
+	amsthm}
+\usepackage[T2A]{fontenc}
+\pgfplotsset{width=15cm,height=10cm,compat=newest}
+
+\begin{document}
+\begin{tikzpicture}[
+]
+	\begin{axis}[
+	table/col sep = comma,
+	xlabel={$U$, В},
+	ylabel={$I$, мА},
+	xmin=-1,
+	xmax=0.5,
+	ymin=-120,
+	ymax=100,
+%	axis x line=center,
+%%	minor y tick num=2,
+%%	minor x tick num=2,
+%	axis x line=center,
+	xticklabels={,-100,-80,-60,-40,-20,0,0.2,0.4},
+	yticklabels={,-0.10,-0.05,0,50,100},
+	grid=both,
+	grid style={line width=.3pt, draw=gray!40},
+	major grid style={line width=.2pt,draw=black!40},
+	legend pos=north west,
+]
+
+	
+
+	\pgfplotstableread{task3.csv}\exp;
+	\addplot[red,only marks, mark=*,mark size=1.5pt,error bars/.cd,y dir=both,y explicit,x dir=both,x explicit] table [x expr = \thisrowno{1},y expr = \thisrowno{0}, x error expr = 0.001, y error expr = 0.001] {\exp};
+	
+	\addplot[black,dashed,forget plot, domain=0.15:0.35, samples=2]{580*x -120};
+%	
+	\draw [draw=none ,fill=black] (0.207,0) coordinate(U) circle (2pt) node [below right] {$U_k$};
+%	
+	\addplot[blue,dashed,forget plot, domain=-1:0.4, samples=2]{-95};
+%	
+	\draw [draw=none ,fill=black] (-1,-95) coordinate(I) circle (2pt) node [below right] {$I_S$};
+%	
+%	\draw [draw=none] (0,0) coordinate(O);
+%	\draw [draw=none] (0.3,-24) coordinate(O1);
+%%	\draw pic[draw=black, ->, solid, angle eccentricity=1.2, angle radius=1.5cm]
+%%	{angle=O1--O--U};
+	\draw[dashed] (0.3,0) arc (0:60:0.15 and 15) node [right] {$R_\text{б}$};
+%%	\legend{$f=U(x)$,$aa$}
+
+\end{axis}
+
+\end{tikzpicture}
+\end{document}
